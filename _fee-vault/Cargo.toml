@@ -1,0 +1,41 @@
+[package]
+name = "fee-vault"
+version = "1.0.0"
+authors = ["Script3 Ltd. <gm@script3.io>"]
+license = "AGPL-3.0"
+edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+testutils = ["soroban-sdk/testutils"]
+
+[dependencies]
+soroban-sdk = "22.0.4"
+soroban-fixed-point-math = "1.3.0"
+blend-contract-sdk = "2.22.0-beta.2"
+
+[dev-dependencies]
+soroban-sdk = { version = "22.0.4", features = ["testutils"] }
+blend-contract-sdk = { version = "2.22.0-beta.4", features = ["testutils"] }
+sep-40-oracle = { version = "1.2.0", features = ["testutils"] }
+sep-41-token = { version = " 1.2.0", features = ["testutils"] }
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
