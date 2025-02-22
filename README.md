@@ -14,7 +14,7 @@
 - Starts February 24, 2025 20:00 UTC
 - Ends March 17, 2025 20:00 UTC
 
-ℹ️ This audit includes **deployed code,** and [the "live criticals" exception](https://docs.code4rena.com/awarding/incentive-model-and-awards#the-live-criticals-exception) therefore applies. 
+ℹ️ This audit includes **deployed code,** and [the "live criticals" exception](https://docs.code4rena.com/awarding/incentive-model-and-awards#the-live-criticals-exception) therefore applies. Please see the section titled "Live/Deployed Code" for details.
 
 **Note re: risk level upgrades/downgrades**
 
@@ -23,6 +23,15 @@ Two important notes about judging phase risk adjustments:
 - Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
 
 As such, wardens are encouraged to select the appropriate risk level carefully during the submission phase.
+
+## Live/Deployed Code
+
+For the purposes of the ["live criticals" exception](https://docs.code4rena.com/awarding/incentive-model-and-awards#the-live-criticals-exception) and [sensitive disclosure process](https://docs.code4rena.com/roles/wardens/submission-guidelines#how-to-submit-zero-day-or-otherwise-highly-sensitive-bugs), contracts in the following directories should be considered live code, as they have only changed incrementally from the V1 code, which is deployed: 
+- `./pool/*`
+- `./pool-factory/*`
+- `./backstop/*`
+
+All other code in scope is _not_ deployed. Vulnerabilities with a root cause in any part of the codebase _except_ the above-listed directories should therefore be submitted via the standard submission form/process.
 
 ## Automated Findings / Publicly Known Issues
 
